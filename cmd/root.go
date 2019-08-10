@@ -23,9 +23,19 @@ func Execute() {
         }
 }
 
+var versionCmd = &cobra.Command{
+	Use:   "version",
+	Short: "Show heft.io client version",
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println(RootCmd.Use + " " + VERSION)
+	},
+}
+
+
 func init() {
         cobra.OnInitialize(initConfig)
         rootCmd.PersistentFlags().StringVar(&developer, "developer", "Unknown Developer!", "Developer name.")
+        RootCmd.AddCommand(versionCmd)
         
 }
 
