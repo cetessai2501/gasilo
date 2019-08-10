@@ -25,7 +25,7 @@ func Execute() {
 func init() {
         cobra.OnInitialize(initConfig)
         rootCmd.PersistentFlags().StringVar(&developer, "developer", "Unknown Developer!", "Developer name.")
-        rootCmd.AddCommand(allCmd)
+        
 }
 
 func initConfig() {
