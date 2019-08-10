@@ -31,6 +31,7 @@ func init() {
 
 func initConfig() {
         developer, _ := rootCmd.Flags().GetString("developer")
+        log.Printf("eee", developer)       
         if developer != "" {
                 fmt.Println("Developer:", developer)
         }
