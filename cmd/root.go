@@ -9,6 +9,12 @@ import (
 
 var developer string
 
+var (
+	// VERSION is set during build
+	VERSION = "0.0.1"
+)
+
+
 var rootCmd = &cobra.Command{
         Use:   "my_flags",
         Short: "A brief description of your application",
@@ -27,7 +33,7 @@ var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Show heft.io client version",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(RootCmd.Use + " " + VERSION)
+		fmt.Println(rootCmd.Use + " " + VERSION)
 	},
 }
 
@@ -35,7 +41,7 @@ var versionCmd = &cobra.Command{
 func init() {
         cobra.OnInitialize(initConfig)
         rootCmd.PersistentFlags().StringVar(&developer, "developer", "Unknown Developer!", "Developer name.")
-        RootCmd.AddCommand(versionCmd)
+        rootCmd.AddCommand(versionCmd)
         
 }
 
