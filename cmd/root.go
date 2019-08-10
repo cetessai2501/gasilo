@@ -12,6 +12,9 @@ var rootCmd = &cobra.Command{
         Use:   "my_flags",
         Short: "A brief description of your application",
         Long:  `A longer description.`,
+        Run: func(cmd *cobra.Command, args []string) {
+                fmt.Println("all in delete was called!")
+        },
 }
 
 func Execute() {
@@ -24,6 +27,7 @@ func Execute() {
 func init() {
         cobra.OnInitialize(initConfig)
         rootCmd.PersistentFlags().StringVar(&developer, "developer", "Unknown Developer!", "Developer name.")
+        rootCmd.AddCommand(allCmd)
 }
 
 func initConfig() {
