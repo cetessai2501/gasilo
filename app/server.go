@@ -16,8 +16,8 @@ import (
 	"github.com/cetessai2501/gasilo/model"
 	"github.com/cetessai2501/gasilo/store"
         "github.com/tylerb/graceful"
-	"gopkg.in/throttled/throttled.v2"
-	"gopkg.in/throttled/throttled.v2/store/memstore"
+        "github.com/throttled/throttled" 
+	
 )
 
 type Server struct {
