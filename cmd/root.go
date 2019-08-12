@@ -5,6 +5,7 @@ import (
         "log"
         "github.com/spf13/cobra"
         "os"
+        "github.com/cetessai2501/gasilo/app"
 )
 
 var developer string
@@ -32,7 +33,7 @@ func Execute() {
 var serverCmd = &cobra.Command{
 	Use:   "server",
 	Short: "Run the  server",
-	RunE:  runServer(),
+	
 }
 
 
@@ -60,6 +61,7 @@ func init() {
         cobra.OnInitialize(initConfig)
         rootCmd.PersistentFlags().StringVar(&developer, "developer", "Unknown Developer!", "Developer name.")
         rootCmd.AddCommand(versionCmd,serverCmd)
+        runServer()
         
 }
 
