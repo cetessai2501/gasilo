@@ -29,6 +29,24 @@ func Execute() {
         }
 }
 
+var serverCmd = &cobra.Command{
+	Use:   "server",
+	Short: "Run the  server",
+	RunE:  runServer(),
+}
+
+
+func runServer(){
+        app.NewServer()
+	app.InitStores()
+        app.StartServer()
+
+
+}
+
+
+
+
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Show heft.io client version",
@@ -41,7 +59,7 @@ var versionCmd = &cobra.Command{
 func init() {
         cobra.OnInitialize(initConfig)
         rootCmd.PersistentFlags().StringVar(&developer, "developer", "Unknown Developer!", "Developer name.")
-        rootCmd.AddCommand(versionCmd)
+        rootCmd.AddCommand(versionCmd,serverCmd)
         
 }
 
