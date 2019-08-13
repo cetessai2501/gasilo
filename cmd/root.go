@@ -59,13 +59,15 @@ var versionCmd = &cobra.Command{
 
 func init() {
         cobra.OnInitialize(initConfig)
-        rootCmd.PersistentFlags().StringVar(&developer, "developer", "Unknown Developer!", "Developer name.")
+        rootCmd.PersistentFlags().StringP("config", "c", "config.json", "Configuration file to use.")
+       
         rootCmd.AddCommand(versionCmd,serverCmd)
         runServer()
         
 }
 
 func initConfig() {
+
         developer, _ := rootCmd.Flags().GetString("developer")
         log.Printf("eee", developer)       
         if developer != "" {
