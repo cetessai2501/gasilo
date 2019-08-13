@@ -13,15 +13,13 @@ import (
 	l4g "github.com/alecthomas/log4go"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
-	"github.com/cetessai2501/gasilo/model"
-	"github.com/cetessai2501/gasilo/store"
-        "github.com/tylerb/graceful"
+        "github.com/cetessai2501/gasilo/utils"
+	"github.com/tylerb/graceful"
         "github.com/throttled/throttled" 
 	
 )
 
 type Server struct {
-	Store           store.Store
 	WebSocketRouter *WebSocketRouter
 	Router          *mux.Router
 	GracefulServer  *graceful.Server
